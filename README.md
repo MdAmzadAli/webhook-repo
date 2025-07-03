@@ -1,16 +1,16 @@
 This is a setup for checking webhook events of github basically merge, pull_request and push
 
 Requirements
-`
-MongoDB_uri
-One Repo for testing event
-ngrok(for exposing localhost url to a public url) 
-python
-`
+
+-MongoDB_uri
+-One Repo for testing event
+-ngrok(for exposing localhost url to a public url) 
+-python
+
 
 Follow the steps below
 
-`
+
 -clone the repo
 -add MONGO_URI in webhook-repo/app/config.py file
 -create another github repo say action-repo for testing events 
@@ -30,7 +30,7 @@ ngrok http 5000
 npm install
 npm run dev
 ```
-`
+
 
 Now you are ready to test events in the action-repo and watch every action displayed in the frontend UI
 
