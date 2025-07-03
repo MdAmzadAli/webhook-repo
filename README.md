@@ -1,47 +1,37 @@
-# Dev Assessment - Webhook Receiver
+This is a setup for checking webhook events of github basically merge, pull_request and push
 
-Please use this repository for constructing the Flask webhook receiver.
+Requirements
+`
+MongoDB_uri
+One Repo for testing event
+ngrok(for exposing localhost url to a public url) 
+python
+`
 
-*******************
+Follow the steps below
 
-## Setup
-
-* Create a new virtual environment
-
-```bash
-pip install virtualenv
-```
-
-* Create the virtual env
-
-```bash
-virtualenv venv
-```
-
-* Activate the virtual env
-
-```bash
-source venv/bin/activate
-```
-
-* Install requirements
+`
+-clone the repo
+-add MONGO_URI in webhook-repo/app/config.py file
+-create another github repo say action-repo for testing events 
+-configure Webhook setting in action-repo to accept ngrok url which you will get by running following commands
+-open the webhook-repo in terminal(Better to create a virtual environment)
 
 ```bash
 pip install -r requirements.txt
-```
-
-* Run the flask application (In production, please use Gunicorn)
-
-```bash
 python run.py
+ngrok http 5000
 ```
-
-* The endpoint is at:
+-add the ngrok forwarding url into github repo and configure it to accept pull_request and push
+-create a new terminal
+-go inside the frontend folder , then run the following command
 
 ```bash
-POST http://127.0.0.1:5000/webhook/receiver
+npm install
+npm run dev
 ```
+`
 
-You need to use this as the base and setup the flask app. Integrate this with MongoDB (commented at `app/extensions.py`)
+Now you are ready to test events in the action-repo and watch every action displayed in the frontend UI
 
-*******************
+

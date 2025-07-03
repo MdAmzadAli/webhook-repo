@@ -1,4 +1,6 @@
-from flask_pymongo import PyMongo
+from pymongo import MongoClient
+from app.config import MONGO_URI
 
-# Setup MongoDB here
-# mongo = PyMongo(uri="mongodb://localhost:27017/database")
+client = MongoClient(MONGO_URI)
+db = client['webhook']
+events_collection = db['events']
