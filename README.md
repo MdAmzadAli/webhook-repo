@@ -2,29 +2,31 @@ This is a setup for checking webhook events of github basically merge, pull_requ
 
 Requirements
 
--MongoDB_uri
--One Repo for testing event
--ngrok(for exposing localhost url to a public url) 
--python
+- MongoDB_uri
+- One Repo for testing event
+- ngrok(for exposing localhost url to a public url) 
+- Python
+- Node 
 
 
-Follow the steps below
+Follow the steps below:
 
 
--clone the repo
--add MONGO_URI in webhook-repo/app/config.py file
--create another github repo say action-repo for testing events 
--configure Webhook setting in action-repo to accept ngrok url which you will get by running following commands
--open the webhook-repo in terminal(Better to create a virtual environment)
+- Clone the repo  
+- Add `MONGO_URI` in `webhook-repo/app/config.py` file  
+- Create another GitHub repo (say `action-repo`) for testing events  
+- Configure Webhook setting in `action-repo` to accept ngrok URL which you will get by running the following commands  
+- Open the `webhook-repo` in terminal (better to create a virtual environment)
+
 
 ```bash
 pip install -r requirements.txt
 python run.py
 ngrok http 5000
 ```
--add the ngrok forwarding url into github repo and configure it to accept pull_request and push
--create a new terminal
--go inside the frontend folder , then run the following command
+- Add the ngrok forwarding url into github repo and configure it to accept pull_request and push
+- Create a new terminal
+- Go inside the frontend folder , then run the following command
 
 ```bash
 npm install
